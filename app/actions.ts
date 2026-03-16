@@ -12,6 +12,8 @@ import {
   searchProjects,
 } from "@/lib/services";
 import { revalidatePath } from "next/cache";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 export async function getProjectsAction(userId: string) {
   return await getAllProjects(userId);
@@ -100,6 +102,12 @@ export async function deleteTaskAction(taskId: string, projectId: string) {
   revalidatePath(`/projects/${projectId}`);
 }
 
-export async function searchProjectsAction(userId: string, searchQuery: string) {
-  return await searchProjects(userId, searchQuery);
+export async function searchProjectsAction(searchQuery: string) {
+  const trimmedQuery = searchQuery?.trim();
+  if (!trimmedQuery) return [];
+  const session = await auth.api.getSession({ headers: await headers() });
+  if (!session) {
+    throw new Error("Unauthorized");
+  }
+  return await searchProjects(session.user.id, trimmedQuery);
 }
