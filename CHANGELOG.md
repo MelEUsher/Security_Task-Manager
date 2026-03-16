@@ -7,7 +7,7 @@ Each entry follows this structure:
 - **Date**: YYYY-MM-DD
 - **Issue**: Brief description of the vulnerability or task
 - **Changes**: What was modified
-- **Commit**: Link to the commit
+- **Pull Request**: Link to the Pull Request
 
 ---
 
