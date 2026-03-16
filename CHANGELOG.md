@@ -16,13 +16,13 @@ Each entry follows this structure:
 ### [2026-03-16] - Initial Changelog Setup
 **Issue**: Create project changelog to track all security remediation work
 **Changes**: Added CHANGELOG.md to document all security fixes and improvements
-**Commit**: [https://github.com/MelEUsher/Security_Task-Manager/pull/3/changes/2a360f9b1a6e13071e9e4b596a52acb86b521b2d]
+**Pull Request**: [https://github.com/MelEUsher/Security_Task-Manager/pull/3]
 
 ---
 
 ### [2026-03-16] - Fixed SQL Injection in Project Search
 **Issue**: Project search vulnerable to SQL injection allowing unauthorized data access
 **Changes**: Replaced raw SQL (`$queryRawUnsafe`) with Prisma parameterized queries in `lib/services.ts`. Added user ID enforcement via Prisma's `where` clause to prevent unauthorized project access.
-**Commit**: [https://github.com/MelEUsher/Security_Task-Manager/commit/846080c35eaa3027dab1449f888c520a50aee395]
+**Pull Request**: [https://github.com/MelEUsher/Security_Task-Manager/pull/8]
 
 ---
