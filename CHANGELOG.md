@@ -16,6 +16,6 @@ Each entry follows this structure:
 ### [2026-03-16] - Initial Changelog Setup
 **Issue**: Create project changelog to track all security remediation work
 **Changes**: Added CHANGELOG.md to document all security fixes and improvements
-**Commit**: [Link to commit - will be added after commit]
+**Commit**: [2-initialize-project-changelog]
 
 ---
