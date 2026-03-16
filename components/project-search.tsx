@@ -15,7 +15,8 @@ export function ProjectSearch() {
   const [error, setError] = useState<string | null>(null);
 
   const handleSearch = async () => {
-    if (!searchQuery.trim()) {
+    const trimmedQuery = searchQuery.trim();
+    if (!trimmedQuery) {
       setSearchResults([]);
       return;
     }
@@ -24,7 +25,7 @@ export function ProjectSearch() {
     setError(null);
 
     try {
-      const results = await searchProjectsAction(searchQuery);
+      const results = await searchProjectsAction(trimmedQuery);
       setSearchResults(results);
     } catch (err) {
       setError("An error occurred during search");

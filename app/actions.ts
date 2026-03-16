@@ -103,9 +103,11 @@ export async function deleteTaskAction(taskId: string, projectId: string) {
 }
 
 export async function searchProjectsAction(searchQuery: string) {
+  const trimmedQuery = searchQuery?.trim();
+  if (!trimmedQuery) return [];
   const session = await auth.api.getSession({ headers: await headers() });
   if (!session) {
     throw new Error("Unauthorized");
   }
-  return await searchProjects(session.user.id, searchQuery);
+  return await searchProjects(session.user.id, trimmedQuery);
 }
