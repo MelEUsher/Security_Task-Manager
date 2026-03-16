@@ -8,7 +8,6 @@ export async function searchProjects(userId: string, searchQuery: string): Promi
       userId: userId,
       title: {
         contains: searchQuery,
-        mode: "insensitive",
       },
     },
     orderBy: { updatedAt: "desc" },
